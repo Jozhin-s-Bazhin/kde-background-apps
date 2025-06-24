@@ -1,0 +1,20 @@
+{
+  "KPlugin": {
+    "Authors": [
+      {
+        "Email": "myemail@gmail.com",
+        "Name": "My Name"
+      }
+    ],
+    "Category": "System Information",
+    "Description": "A widget to take over the world!",
+    "Icon": "data-warning",
+    "Id": "org.kde.backgroundapps",
+    "Name": "Background apps menu",
+    "Version": "0.1",
+    "Website": "https://example.com/user/plasmoid-helloworldplugin",
+    "BugReportUrl": "https://example.com/user/plasmoid-helloworldplugin/bugs"
+  },
+  "X-Plasma-API-Minimum-Version": "6.0",
+  "KPackageStructure": "Plasma/Applet"
+}

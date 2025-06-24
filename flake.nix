@@ -13,9 +13,9 @@
           (python313.withPackages (
             p: with p; [
               ipykernel
-              pyside6
             ]
           ))
+          kdePackages.plasma-sdk
         ];
       };
     };
