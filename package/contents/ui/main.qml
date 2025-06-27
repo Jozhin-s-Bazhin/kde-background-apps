@@ -10,62 +10,34 @@ PlasmoidItem {
     id: root
 
     ListModel {
-        id: kountdownModel
-        // Each ListElement is an element on the list, containing information
+        id: itemModel
         ListElement {
-            name: "Dog birthday!!"
-            description: "Big doggo birthday blowout."
-            date: 100
+            appName: "Steam"
+            appIcon: "applications-internet-symbolic"
         }
     }
 
     Component {
-        id: kountdownDelegate
+        id: itemDelegate
         Kirigami.AbstractCard {
             contentItem: Item {
-                // implicitWidth/Height define the natural width/height
-                // of an item if no width or height is specified.
-                // The setting below defines a component's preferred size based on its content
                 implicitWidth: delegateLayout.implicitWidth
                 implicitHeight: delegateLayout.implicitHeight
-                GridLayout {
+                RowLayout {
                     id: delegateLayout
-                    anchors {
-                        left: parent.left
-                        top: parent.top
-                        right: parent.right
+                    spacing: 5
+                    width: parent.width
+                    Kirigami.Icon {
+                        source: appIcon
                     }
-                    rowSpacing: Kirigami.Units.largeSpacing
-                    columnSpacing: Kirigami.Units.largeSpacing
-                    columns: root.wideScreen ? 4 : 2
-
-                    Kirigami.Heading {
-                        level: 1
-                        text: date
+                    PlasmaComponents.Label {
+                        text: appName
                     }
-
-                    ColumnLayout {
-                        Kirigami.Heading {
-                            Layout.fillWidth: true
-                            level: 2
-                            text: name
-                        }
-                        Kirigami.Separator {
-                            Layout.fillWidth: true
-                            visible: description.length > 0
-                        }
-                        Controls.Label {
-                            Layout.fillWidth: true
-                            wrapMode: Text.WordWrap
-                            text: description
-                            visible: description.length > 0
-                        }
+                    Item {
+                        Layout.fillWidth: true
                     }
-                    Controls.Button {
-                        Layout.alignment: Qt.AlignRight
-                        Layout.columnSpan: 2
-                        text: i18n("Edit")
-                        // onClicked: to be done... soon!
+                    PlasmaComponents.Button {
+                        icon.name: "dialog-close-symbolic"
                     }
                 }
             }
@@ -73,13 +45,18 @@ PlasmoidItem {
     }
 
     fullRepresentation: Kirigami.ScrollablePage {
-        Layout.preferredHeight: 1000
-        Layout.preferredWidth: 1000
+        Layout.preferredHeight: 375
+        Layout.preferredWidth: 300
+        background: Item {} // Makes background transparent
 
         Kirigami.CardsListView {
-            id: cardsView
-            model: kountdownModel
-            delegate: kountdownDelegate
+            leftMargin: 5
+            rightMargin: 5
+            bottomMargin: 5
+            topMargin: 5
+
+            model: itemModel
+            delegate: itemDelegate
         }
     }
 }
