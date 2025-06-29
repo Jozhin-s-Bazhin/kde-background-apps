@@ -44,19 +44,10 @@ PlasmoidItem {
         }
     }
 
-    fullRepresentation: Kirigami.ScrollablePage {
+    fullRepresentation: Kirigami.CardsListView {
         Layout.preferredHeight: 375
         Layout.preferredWidth: 300
-        background: Item {} // Makes background transparent
-
-        Kirigami.CardsListView {
-            leftMargin: 5
-            rightMargin: 5
-            bottomMargin: 5
-            topMargin: 5
-
-            model: itemModel
-            delegate: itemDelegate
-        }
+        model: itemModel
+        delegate: itemDelegate
     }
 }
