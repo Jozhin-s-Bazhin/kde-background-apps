@@ -12,7 +12,11 @@ PlasmoidItem {
     ListModel {
         id: itemModel
         ListElement {
-            appName: "Steam"
+            appName: "Application"
+            appIcon: "applications-internet-symbolic"
+        }
+        ListElement {
+            appName: "Another application"
             appIcon: "applications-internet-symbolic"
         }
     }
